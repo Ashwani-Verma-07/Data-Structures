@@ -18,38 +18,14 @@ int quick_sort(int arr[],int sp,int ep){
     swap(arr[i + 1],arr[ep]); 
     return i + 1; 
 } 
-/*swap(first_element,arr[sp+count-1]);
-int i=sp,j=ep;
-while(i<j){
-    if(arr[i]<first_element){
-       i++;
-    }
-    if(arr[j]>first_element){
-       j--;
-
-    }
-    if(arr[i]>arr[sp+count-1] and arr[j]<arr[sp+count-1]){
-        swap(arr[i],arr[j]);
-        i++;
-        j--;
-    }
-    */
-
-
 void call(int arr[],int sp,int ep){
 
     if(sp>=ep){
         return;
     }
-   
-  if(sp<ep){
   int ans = quick_sort(arr,sp,ep);
-
     call(arr,sp,ans-1);
-
     call(arr,ans+1,ep);
-   
-  }
 }
 
 int main(){
