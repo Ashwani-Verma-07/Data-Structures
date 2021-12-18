@@ -35,14 +35,26 @@ Node *insert()
 
     return head;
 }
-void recursive_call(Node *head)
+// void recursive_call(Node *head)
+// {
+//     if (head == NULL)
+//     {
+//         return;
+//     }
+//     recursive_call(head->next);
+//     cout << head->data << " ";
+// }
+Node *recursive_call(Node *head)
 {
-    if (head == NULL)
+    if (head == NULL or head->next == NULL)
     {
-        return;
+        return head;
     }
-    recursive_call(head->next);
-    cout << head->data << " ";
+    Node *temp = recursive_call(head->next);
+    Node *tail = head->next;
+    tail->next = head;
+    head->next = NULL;
+    return temp;
 }
 void print(Node *head)
 {
