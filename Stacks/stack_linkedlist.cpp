@@ -32,20 +32,13 @@ public:
     void push(int element)
     {
         Node *newNode = new Node(element);
-        if (head == NULL)
-        {
-            head = newNode;
-        }
-        else
-        {
             newNode->next = head;
             head = newNode;
-        }
         size++;
     }
     int pop()
     {
-        if (head == NULL)
+        if (isEmpty())
         {
             cout << "Stack is empty!" << endl;
             return 0;
@@ -59,6 +52,11 @@ public:
     }
     int top()
     {
+        if (isEmpty())
+        {
+            cout << "Stack is empty!" << endl;
+            return 0;
+        }
         return head->data;
     }
 };
