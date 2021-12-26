@@ -60,12 +60,12 @@ public:
         int ans = data[firstindex];
         firstindex = (firstindex + 1) % capacity;
         size--;
-        return ans;
-        if (size == 0)
+          if (size == 0)
         {
             firstindex = -1;
             nextindex = 0;
         }
+        return ans;
     }
 };
 int main()
