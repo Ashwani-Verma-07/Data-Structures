@@ -15,6 +15,7 @@ public:
         nextindex = 0;
         firstindex = -1;
         size = 0;
+        capacity = s;
     }
     int getSize()
     {
