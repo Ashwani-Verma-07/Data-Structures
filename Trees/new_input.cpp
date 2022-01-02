@@ -46,6 +46,27 @@ void output(TreeNode<int> *root)
         output(root->children[i]);
     }
 }
+int largestNode(TreeNode<int> *root)
+{
+    int max_ = root->data;
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        int data = largestNode(root->children[i]);
+
+        max_ = max(max_, data);
+    }
+    return max_;
+}
+int sumNodes(TreeNode<int> *root)
+{
+    int sum = root->data;
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        int data = sumNodes(root->children[i]);
+        sum += data;
+    }
+    return sum;
+}
 TreeNode<int> *input()
 {
     int root;
