@@ -89,21 +89,17 @@ int max_Nodes_than_given(TreeNode<int> *root, int key)
 int find_(TreeNode<int> *root, int key)
 {
     int ans = root->data;
-    int x;
-
+if(root->data==key){
+    return 1;
+}
     for (int i = 0; i < root->children.size(); i++)
     {
-        ans = find_(root->children[i], key);
+       bool ans = find_(root->children[i], key);
+        if(ans){
+            return 1;
     }
-    if (ans == key)
-    {
-        x = 1;
-    }
-    else
-    {
-        x = 0;
-    }
-    return x;
+    }   
+    return 0;
 }
 int main()
 {
