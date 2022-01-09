@@ -88,7 +88,6 @@ int max_Nodes_than_given(TreeNode<int> *root, int key)
 }
 int find_(TreeNode<int> *root, int key)
 {
-    int ans = root->data;
 if(root->data==key){
     return 1;
 }
@@ -108,6 +107,7 @@ int main()
     cout << "Enter key" << endl;
     int key, num;
     cin >> key;
+    cout << "NO. of elements greater than " << key << " in the Tree are : " << endl;
     cout << max_Nodes_than_given(root, key) << endl;
     cout << "Enter element to find" << endl;
     cin >> num;
