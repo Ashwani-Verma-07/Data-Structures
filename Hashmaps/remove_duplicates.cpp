@@ -17,6 +17,7 @@ vector<int> remove_duplicates(int a[], int size)
     }
     return output;
 }
+
 int main()
 {
     int n, arr[1000];
@@ -31,6 +32,28 @@ int main()
     {
         cout << i << " ";
     }
+    //return maximum times string;
+    cout<<"Enter a String"<<endl;
+    string str;
+    cin >> str;
+
+    unordered_map<char, int> map;
+    for (int i = 0; i < str.size(); i++)
+    {
+        map[str[i]]++;
+    }
+    int maxCount = 0;
+    char ch;
+    for (pair<char, int> p : map)
+    {
+        if (maxCount < p.second)
+        {
+            maxCount = p.second;
+            ch = p.first;
+        }
+    }
+    cout << ch;
 }
 
 //1 1 2 2 5 5 6 8 4 1 5 5 0 0 0 7 4 6 -1
+//aaabcdrfere
