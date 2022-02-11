@@ -11,14 +11,7 @@ public:
         next = NULL;
     }
 };
-// Node *recursive_call(Node *head)
-// {
-//     if (head == NULL)
-//     {
-//         return head;
-//     }
-//     Node *temp = recursive_call(head->next);
-// }
+
 Node *insert()
 {
     Node *head = NULL;
@@ -43,18 +36,30 @@ Node *insert()
 
     return head;
 }
-Node *reverse(Node *head)
+Node *reverse_rec(Node *head)
 {
-    Node *prev = NULL;
-    while (head != NULL)
+    if (head == NULL || head->next == NULL)
     {
-        Node *temp = head->next;
-        head->next = prev;
-        prev = head;
-        head = temp;
+        return head;
     }
-    return prev;
+    Node *temp = reverse_rec(head->next);
+    Node *tail = head->next;
+    tail->next = head;
+    head->next = NULL;
+    return temp;
 }
+// Node *reverse(Node *head)
+// {
+//     Node *prev = NULL;
+//     while (head != NULL)
+//     {
+//         Node *temp = head->next;
+//         head->next = prev;
+//         prev = head;
+//         head = temp;
+//     }
+//     return prev;
+// }
 void print(Node *head)
 {
     Node *temp = head;
@@ -66,21 +71,21 @@ void print(Node *head)
 }
 int main()
 {
-    int flag = 1;
-    cout << "Enter elements" << endl;
+    int flag = -1;
     Node *head = insert();
-    Node *star = reverse(head);
+    Node *star = reverse_rec(head);
 
-    // Node *star = recursive_call(head);
+    print(star);
     while (head != NULL && star != NULL)
     {
-        if (head->data == star->data)
+        if (head->data != star->data)
         {
-            flag = 1;
+            flag = 0;
+            break;
         }
         else
         {
-            flag = 0;
+            flag = 1;
         }
         head = head->next;
         star = star->next;
@@ -90,8 +95,9 @@ int main()
     {
         cout << "true" << endl;
     }
-    else
+    if (flag == 0)
     {
         cout << "false" << endl;
     }
+    return 0;
 }
