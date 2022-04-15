@@ -1,0 +1,47 @@
+# Range Sum
+
+class Solution {
+public:
+  int sum=0;
+  int inorder(TreeNode* root,int l,int r){
+    
+    if(root!=NULL){
+     inorder(root->left,l,r);
+      if(root->val>=l && root->val<=r){
+        
+        sum+=root->val;        
+      }
+      inorder(root->right,l,r);
+    }
+     return sum;
+  }
+    int rangeSumBST(TreeNode* root, int low, int high) {
+        if(root==NULL){
+          return 0;
+        }
+      return inorder(root,low,high);
+    }
+};
+
+# Diameter
+
+class Solution {
+public:
+    int diameterOfBinaryTree(TreeNode* root) {
+      if(root==NULL){
+        return 0;
+      }
+      int d=0;  
+       rec(root,d);
+    return d;
+    }
+  int rec(TreeNode *root,int &d){
+    if(root==NULL){
+      return 0;
+    }
+    int ld = rec(root->left,d);
+    int rd = rec(root->right,d);
+    d=max(d,ld+rd);
+    return max(ld,rd)+1;
+  }
+};
