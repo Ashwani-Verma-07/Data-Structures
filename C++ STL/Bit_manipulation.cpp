@@ -67,4 +67,40 @@ int main()
     cout << "Enter Number to find total number of set bits in ";
     cin >> number1;
     cout << countSetBits(number1);
+    temp();
+}
+
+void temp()
+{
+    // n=5 ->   00000101
+    // i=1 ->   00000010  ,,, if i=0 ->    00000001
+    // taking and then 00000000 -> NOT SET      ,,, SET
+    int n, i;
+    cin >> n;
+    cout << "Enter position to check set or not_set" << endl;
+    cin >> i;
+    if ((n & (1 << i)) == 0)
+    {
+        cout << "NOT SET" << endl;
+    }
+    else
+    {
+        cout << "SET" << endl;
+    }
+    //     You are given two integers N and i. You need to make ith bit of binary representation of N to 1 and return the updated N.
+    //     Counting of bits start from 0 from right to left.
+    int num, p;
+    cin >> num;
+
+    cin >> p;
+    int x = num | (1 << p);
+    cout << x << endl;
+
+    //     You are given two integers N and i. You need to make ith bit of binary representation of N to 0 and return the updated N.
+    //     Counting of bits start from 0 from right to left.
+    int y, q;
+    cin >> y;
+    cin >> q;
+    int d = (y ^ (1 << q));
+    cout << d << endl;
 }
