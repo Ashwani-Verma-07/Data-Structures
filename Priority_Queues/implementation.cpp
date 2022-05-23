@@ -45,7 +45,7 @@ public:
             childindex = parentindex;
         }
     }
-    int removeMin(int position)
+    int removeMin()
     {
         if (pq.empty())
         {
@@ -99,12 +99,16 @@ int main()
     p.insert(67);
     cout << p.getSize() << endl;
     cout << p.getMin() << endl;
-    int i = 0;
     while (!p.isEmpty())
     {
 
-        cout << p.removeMin(i) << " ";
-        i++;
+        cout << p.removeMin() << " ";
+
     }
     cout << endl;
 }
+
+//Output:
+// 7
+// 4
+// 4 10 15 17 21 67 100 
