@@ -1,26 +1,26 @@
 #include <iostream>
-#include <cstring>
+#include <vector>
 using namespace std;
-void sequences(string in, char *out, int i, int j)
+void sub(vector<int> &num, vector<int> &ds, int i, int n)
 {
-    if (in[i] == '\0')
+    if (i >= n)
     {
-        out[j] = '\0';
-        cout << out << endl;
+        for (auto it : ds)
+        {
+            cout << it << " ";
+        }
+        cout << endl;
         return;
     }
-    // including elements in output array;
-    out[j] = in[i];
-    sequences(in, out, i + 1, j + 1);
-    // excluding elements in output array;
-    sequences(in, out, i + 1, j);
+    ds.push_back(num[i]);
+    sub(num, ds, i + 1, n);
+    ds.pop_back();
+    sub(num, ds, i + 1, n);
 }
 int main()
 {
-    cout << "Enter set to find power set " << endl;
-    string input;
-    cin >> input;
-    char output[1000];
-    cout << endl;
-    sequences(input, output, 0, 0);
+    vector<int> num{3, 1, 2};
+    int n = num.size();
+    vector<int> ds;
+    sub(num, ds, 0, n);
 }
