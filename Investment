@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+#define int ll
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int time, amount, interest, monthly;
+    cout << "Enter No. of Years you want to Invest" << endl;
+    cin >> time;
+    cout << "Enter Amount Per Year" << endl;
+    cin >> amount;
+    cout << "Enter Interest Rate per Year" << endl;
+    cin >> interest;
+    cout << "Enter Yearly Amount increase in %" << endl;
+    cin >> monthly;
+    int temp = amount;
+    int returns = 0, money = 0, x = 0;
+    for (int i = 1; i <= time; i++)
+    {
+        if (i == 1)
+            returns = interest * amount / 100.0;
+        else
+            returns = interest * (money + amount) / 100.0;
+
+        if (i == 1)
+            money += amount + returns;
+        else
+            money += amount + returns;
+        x = amount + amount * monthly / 100;
+        if (monthly)
+            cout << "Increase in expense in every year " << x - amount << endl;
+        amount = x;
+        cout << "Year " << i << " returns " << returns << " Money " << money << endl;
+    }
+    cout << "----------------------------------" << endl;
+    if (monthly == 0)
+        cout << "Total Money invested by you is ₹" << temp * time << endl;
+    else
+        cout << "Total Money invested by you is ₹" << temp * time + x << endl;
+    cout << "Total Money you got in " << time << " years is ₹" << money << endl;
+}
